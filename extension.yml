@@ -6,7 +6,7 @@ extension:
   version: "1.0.0"
   description: "Easily bootstrap a new project with Zuraffa Flutter Framework"
   author: "ARRRRNY"
-  repository: "https://github.com/you/spec-kit-my-ext"
+  repository: "https://github.com/arrrrny/zuraffa-speckit"
   license: "MIT"
 
 requires:

@@ -11,10 +11,29 @@ A Speckit extension that exposes all ZFA CLI commands through the Speckit comman
 
 ## Installation
 
-This extension is installed as a git submodule:
+### Option 1: Speckit CLI (Recommended)
 
 ```bash
-.specify/extensions/zuraffa/
+# Install from direct URL (works for any project)
+specify extension add zuraffa --from https://github.com/arrrrny/zuraffa-speckit/archive/refs/tags/v1.0.0.zip
+```
+
+### Option 2: Git Submodule (For Zuraffa Contributors)
+
+The zuraffa monorepo uses a submodule so specs and docs can reference extension files directly:
+
+```bash
+# From the zuraffa project root
+git submodule add git@github.com:arrrrny/zuraffa-speckit.git .specify/extensions/zuraffa
+```
+
+### Option 3: Catalog-based (For Organizations)
+
+Add to your organization's `catalog.json`, then:
+
+```bash
+specify extension search    # See zuraffa in your catalog
+specify extension add zuraffa
 ```
 
 ## Available Commands
