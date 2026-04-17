@@ -1,0 +1,277 @@
+# ZFA CLI Command Registry
+
+# This registry defines all ZFA CLI commands available through the Speckit extension
+# Format: command_name: { path, category, description, cli_equivalent }
+
+registry:
+  # Generation commands
+  generate:
+    path: commands/generation/generate.md
+    category: generation
+    description: Generate Clean Architecture code using presets
+    cli_equivalent: "dart run zuraffa:zfa generate"
+    subcommands: []
+    
+  make:
+    path: commands/generation/make.md
+    category: generation
+    description: Run multiple generator plugins explicitly
+    cli_equivalent: "dart run zuraffa:zfa make"
+    subcommands: []
+    
+  initialize:
+    path: commands/generation/initialize.md
+    category: generation
+    description: Initialize a test entity
+    cli_equivalent: "dart run zuraffa:zfa initialize"
+    subcommands: []
+
+  # Scaffolding commands
+  feature:
+    path: commands/scaffolding/feature.md
+    category: scaffolding
+    description: Scaffold full features
+    cli_equivalent: "dart run zuraffa:zfa feature"
+    subcommands:
+      - scaffold
+      - controller
+      - di
+      - mock
+      - presenter
+      - route
+      - state
+      - test
+      - view
+
+  # Domain commands
+  usecase:
+    path: commands/domain/usecase.md
+    category: domain
+    description: Generate UseCases
+    cli_equivalent: "dart run zuraffa:zfa usecase"
+    subcommands:
+      - create
+      
+  service:
+    path: commands/domain/service.md
+    category: domain
+    description: Generate Services
+    cli_equivalent: "dart run zuraffa:zfa service"
+    subcommands:
+      - create
+      - method
+      
+  provider:
+    path: commands/domain/provider.md
+    category: domain
+    description: Generate Providers
+    cli_equivalent: "dart run zuraffa:zfa provider"
+    subcommands:
+      - create
+      - inject
+      - method
+      - private-method
+
+  # Data commands
+  repository:
+    path: commands/data/repository.md
+    category: data
+    description: Generate Repositories
+    cli_equivalent: "dart run zuraffa:zfa repository"
+    subcommands:
+      - create
+      - method
+      
+  datasource:
+    path: commands/data/datasource.md
+    category: data
+    description: Generate DataSources
+    cli_equivalent: "dart run zuraffa:zfa datasource"
+    subcommands:
+      - create
+      - inject
+      - method
+      - private-method
+
+  # Presentation commands
+  view:
+    path: commands/presentation/view.md
+    category: presentation
+    description: Generate Flutter Views
+    cli_equivalent: "dart run zuraffa:zfa view"
+    subcommands:
+      - create
+      - custom
+      - register
+      
+  controller:
+    path: commands/presentation/controller.md
+    category: presentation
+    description: Generate Controllers
+    cli_equivalent: "dart run zuraffa:zfa controller"
+    subcommands:
+      - create
+      
+  presenter:
+    path: commands/presentation/presenter.md
+    category: presentation
+    description: Generate Presenters
+    cli_equivalent: "dart run zuraffa:zfa presenter"
+    subcommands:
+      - create
+      
+  state:
+    path: commands/presentation/state.md
+    category: presentation
+    description: Generate State classes
+    cli_equivalent: "dart run zuraffa:zfa state"
+    subcommands:
+      - create
+      
+  observer:
+    path: commands/presentation/observer.md
+    category: presentation
+    description: Generate Observer
+    cli_equivalent: "dart run zuraffa:zfa observer"
+    subcommands:
+      - create
+      
+  route:
+    path: commands/presentation/route.md
+    category: presentation
+    description: Generate route definitions
+    cli_equivalent: "dart run zuraffa:zfa route"
+    subcommands:
+      - create
+      - custom
+
+  # Utilities commands
+  cache:
+    path: commands/utilities/cache.md
+    category: utilities
+    description: Generate Cache logic
+    cli_equivalent: "dart run zuraffa:zfa cache"
+    subcommands: []
+    
+  manifest:
+    path: commands/utilities/manifest.md
+    category: utilities
+    description: List all available capabilities
+    cli_equivalent: "dart run zuraffa:zfa manifest"
+    subcommands: []
+    
+  validate:
+    path: commands/utilities/validate.md
+    category: utilities
+    description: Validate JSON configuration
+    cli_equivalent: "dart run zuraffa:zfa validate"
+    subcommands: []
+    
+  config:
+    path: commands/utilities/config.md
+    category: utilities
+    description: Manage ZFA configuration
+    cli_equivalent: "dart run zuraffa:zfa config"
+    subcommands: []
+
+  # Testing commands
+  test:
+    path: commands/testing/test.md
+    category: testing
+    description: Generate Tests
+    cli_equivalent: "dart run zuraffa:zfa test"
+    subcommands:
+      - create
+      
+  mock:
+    path: commands/testing/mock.md
+    category: testing
+    description: Generate Mocks
+    cli_equivalent: "dart run zuraffa:zfa mock"
+    subcommands:
+      - create
+      - data
+      - inject
+      - method
+
+  # Management commands
+  apply:
+    path: commands/management/apply.md
+    category: management
+    description: Execute previously generated plan
+    cli_equivalent: "dart run zuraffa:zfa apply"
+    subcommands: []
+    
+  plugin:
+    path: commands/management/plugin.md
+    category: management
+    description: Manage plugins
+    cli_equivalent: "dart run zuraffa:zfa plugin"
+    subcommands: []
+    
+  doctor:
+    path: commands/management/doctor.md
+    category: management
+    description: Show information about installed tooling
+    cli_equivalent: "dart run zuraffa:zfa doctor"
+    subcommands: []
+    
+  shadcn:
+    path: commands/management/shadcn.md
+    category: management
+    description: Generate Shadcn UI widgets
+    cli_equivalent: "dart run zuraffa:zfa shadcn"
+    subcommands: []
+
+  # Structure commands
+  create:
+    path: commands/structure/create.md
+    category: structure
+    description: Create architecture folders or pages
+    cli_equivalent: "dart run zuraffa:zfa create"
+    subcommands: []
+    
+  entity:
+    path: commands/structure/entity.md
+    category: structure
+    description: Create Zorphy entities
+    cli_equivalent: "dart run zuraffa:zfa entity"
+    subcommands: []
+
+# Categories for organization
+categories:
+  generation:
+    name: "Code Generation"
+    description: "Core code generation commands"
+    
+  scaffolding:
+    name: "Feature Scaffolding"
+    description: "Full feature scaffolding"
+    
+  domain:
+    name: "Domain Layer"
+    description: "UseCases, Services, Providers"
+    
+  data:
+    name: "Data Layer"
+    description: "Repositories, DataSources"
+    
+  presentation:
+    name: "Presentation Layer"
+    description: "Views, Controllers, Presenters, State"
+    
+  utilities:
+    name: "Utilities"
+    description: "Cache, Manifest, Validate, Config"
+    
+  testing:
+    name: "Testing"
+    description: "Tests and Mocks"
+    
+  management:
+    name: "Management"
+    description: "Apply, Plugin, Doctor, Shadcn"
+    
+  structure:
+    name: "Structure"
+    description: "Create, Entity"

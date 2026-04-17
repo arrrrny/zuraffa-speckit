@@ -1,42 +1,195 @@
 schema_version: "1.0"
 
 extension:
-  id: "zuraffa" # Lowercase, alphanumeric + hyphens only
+  id: "zuraffa"
   name: "Zuraffa"
-  version: "1.0.0" # Semantic versioning
+  version: "1.0.0"
   description: "Easily bootstrap a new project with Zuraffa Flutter Framework"
   author: "ARRRRNY"
   repository: "https://github.com/you/spec-kit-my-ext"
   license: "MIT"
 
 requires:
-  speckit_version: ">=0.1.0" # Minimum spec-kit version
-  tools: # Optional: External tools required
+  speckit_version: ">=0.1.0"
+  tools:
     - name: "zfa"
       required: true
       version: ">=4.0.0"
-  commands: # Optional: Core commands needed
+  commands:
     - "speckit.tasks"
 
 provides:
   commands:
-    - name: "speckit.zuraffa.init" # Must follow pattern: speckit.{ext-id}.{cmd}
+    # Generation commands
+    - name: "speckit.zuraffa.generate"
+      file: "commands/generation/generate.md"
+      description: "Generate Clean Architecture code using presets"
+      aliases: ["speckit.zfa.generate"]
+
+    - name: "speckit.zuraffa.make"
+      file: "commands/generation/make.md"
+      description: "Run multiple generator plugins explicitly"
+      aliases: ["speckit.zfa.make"]
+
+    - name: "speckit.zuraffa.initialize"
+      file: "commands/generation/initialize.md"
+      description: "Initialize a test entity"
+      aliases: ["speckit.zfa.initialize"]
+
+    # Scaffolding commands
+    - name: "speckit.zuraffa.feature"
+      file: "commands/scaffolding/feature.md"
+      description: "Scaffold full features"
+      aliases: ["speckit.zfa.feature"]
+
+    # Domain commands
+    - name: "speckit.zuraffa.usecase"
+      file: "commands/domain/usecase.md"
+      description: "Generate UseCases"
+      aliases: ["speckit.zfa.usecase"]
+
+    - name: "speckit.zuraffa.service"
+      file: "commands/domain/service.md"
+      description: "Generate Services"
+      aliases: ["speckit.zfa.service"]
+
+    - name: "speckit.zuraffa.provider"
+      file: "commands/domain/provider.md"
+      description: "Generate Providers"
+      aliases: ["speckit.zfa.provider"]
+
+    # Data commands
+    - name: "speckit.zuraffa.repository"
+      file: "commands/data/repository.md"
+      description: "Generate Repositories"
+      aliases: ["speckit.zfa.repository"]
+
+    - name: "speckit.zuraffa.datasource"
+      file: "commands/data/datasource.md"
+      description: "Generate DataSources"
+      aliases: ["speckit.zfa.datasource"]
+
+    # Presentation commands
+    - name: "speckit.zuraffa.view"
+      file: "commands/presentation/view.md"
+      description: "Generate Flutter Views"
+      aliases: ["speckit.zfa.view"]
+
+    - name: "speckit.zuraffa.controller"
+      file: "commands/presentation/controller.md"
+      description: "Generate Controllers"
+      aliases: ["speckit.zfa.controller"]
+
+    - name: "speckit.zuraffa.presenter"
+      file: "commands/presentation/presenter.md"
+      description: "Generate Presenters"
+      aliases: ["speckit.zfa.presenter"]
+
+    - name: "speckit.zuraffa.state"
+      file: "commands/presentation/state.md"
+      description: "Generate State classes"
+      aliases: ["speckit.zfa.state"]
+
+    - name: "speckit.zuraffa.observer"
+      file: "commands/presentation/observer.md"
+      description: "Generate Observer"
+      aliases: ["speckit.zfa.observer"]
+
+    - name: "speckit.zuraffa.route"
+      file: "commands/presentation/route.md"
+      description: "Generate route definitions"
+      aliases: ["speckit.zfa.route"]
+
+    # Utilities commands
+    - name: "speckit.zuraffa.cache"
+      file: "commands/utilities/cache.md"
+      description: "Generate Cache logic"
+      aliases: ["speckit.zfa.cache"]
+
+    - name: "speckit.zuraffa.manifest"
+      file: "commands/utilities/manifest.md"
+      description: "List all available capabilities"
+      aliases: ["speckit.zfa.manifest"]
+
+    - name: "speckit.zuraffa.validate"
+      file: "commands/utilities/validate.md"
+      description: "Validate JSON configuration"
+      aliases: ["speckit.zfa.validate"]
+
+    - name: "speckit.zuraffa.config"
+      file: "commands/utilities/config.md"
+      description: "Manage ZFA configuration"
+      aliases: ["speckit.zfa.config"]
+
+    # Testing commands
+    - name: "speckit.zuraffa.test"
+      file: "commands/testing/test.md"
+      description: "Generate Tests"
+      aliases: ["speckit.zfa.test"]
+
+    - name: "speckit.zuraffa.mock"
+      file: "commands/testing/mock.md"
+      description: "Generate Mocks"
+      aliases: ["speckit.zfa.mock"]
+
+    # Management commands
+    - name: "speckit.zuraffa.apply"
+      file: "commands/management/apply.md"
+      description: "Execute previously generated plan"
+      aliases: ["speckit.zfa.apply"]
+
+    - name: "speckit.zuraffa.plugin"
+      file: "commands/management/plugin.md"
+      description: "Manage plugins"
+      aliases: ["speckit.zfa.plugin"]
+
+    - name: "speckit.zuraffa.doctor"
+      file: "commands/management/doctor.md"
+      description: "Show information about installed tooling"
+      aliases: ["speckit.zfa.doctor"]
+
+    - name: "speckit.zuraffa.shadcn"
+      file: "commands/management/shadcn.md"
+      description: "Generate Shadcn UI widgets"
+      aliases: ["speckit.zfa.shadcn"]
+
+    # Structure commands
+    - name: "speckit.zuraffa.create"
+      file: "commands/structure/create.md"
+      description: "Create architecture folders or pages"
+      aliases: ["speckit.zfa.create"]
+
+    - name: "speckit.zuraffa.entity"
+      file: "commands/structure/entity.md"
+      description: "Create Zorphy entities"
+      aliases: ["speckit.zfa.entity"]
+
+    # Legacy init command (kept for compatibility)
+    - name: "speckit.zuraffa.init"
       file: "commands/init.md"
       description: "Initialize a new Zuraffa project"
-      aliases: ["speckit.zfa.init"] # Optional aliases, same pattern
+      aliases: ["speckit.zfa.init"]
 
-  config: # Optional: Config files
+  config:
     - name: "zuraffa-config.yml"
       template: "zuraffa-config.template.yml"
       description: "Zuraffa configuration"
       required: false
 
-hooks: # Optional: Integration hooks
+hooks:
   after_tasks:
     command: "speckit.zuraffa.init"
     optional: true
     prompt: "Run init command?"
 
-tags: # Optional: For catalog search
+tags:
   - "flutter"
   - "codegen"
+
+# Auto-discovery configuration
+# This enables the extension to automatically detect new ZFA CLI commands
+auto_discovery:
+  enabled: true
+  registry_file: "commands/registry.yaml"
+  script_path: "scripts/discover-commands.sh"
+  regenerate_script: "scripts/regenerate.sh"
