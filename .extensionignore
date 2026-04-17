@@ -1,0 +1,10 @@
+# Development files
+.zed/
+.gitignore
+
+# Build artifacts
+scripts/
+commands/registry.yaml
+commands/_template.md
+commands/index.md
+commands/**/README.md

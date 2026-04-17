@@ -164,32 +164,6 @@ provides:
       description: "Create Zorphy entities"
       aliases: ["speckit.zfa.entity"]
 
-    # Legacy init command (kept for compatibility)
-    - name: "speckit.zuraffa.init"
-      file: "commands/init.md"
-      description: "Initialize a new Zuraffa project"
-      aliases: ["speckit.zfa.init"]
-
-  config:
-    - name: "zuraffa-config.yml"
-      template: "zuraffa-config.template.yml"
-      description: "Zuraffa configuration"
-      required: false
-
-hooks:
-  after_tasks:
-    command: "speckit.zuraffa.init"
-    optional: true
-    prompt: "Run init command?"
-
 tags:
   - "flutter"
   - "codegen"
-
-# Auto-discovery configuration
-# This enables the extension to automatically detect new ZFA CLI commands
-auto_discovery:
-  enabled: true
-  registry_file: "commands/registry.yaml"
-  script_path: "scripts/discover-commands.sh"
-  regenerate_script: "scripts/regenerate.sh"
