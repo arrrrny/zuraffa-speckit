@@ -1,0 +1,42 @@
+schema_version: "1.0"
+
+extension:
+  id: "zuraffa" # Lowercase, alphanumeric + hyphens only
+  name: "Zuraffa"
+  version: "1.0.0" # Semantic versioning
+  description: "Easily bootstrap a new project with Zuraffa Flutter Framework"
+  author: "ARRRRNY"
+  repository: "https://github.com/you/spec-kit-my-ext"
+  license: "MIT"
+
+requires:
+  speckit_version: ">=0.1.0" # Minimum spec-kit version
+  tools: # Optional: External tools required
+    - name: "zfa"
+      required: true
+      version: ">=4.0.0"
+  commands: # Optional: Core commands needed
+    - "speckit.tasks"
+
+provides:
+  commands:
+    - name: "speckit.zuraffa.init" # Must follow pattern: speckit.{ext-id}.{cmd}
+      file: "commands/init.md"
+      description: "Initialize a new Zuraffa project"
+      aliases: ["speckit.zfa.init"] # Optional aliases, same pattern
+
+  config: # Optional: Config files
+    - name: "zuraffa-config.yml"
+      template: "zuraffa-config.template.yml"
+      description: "Zuraffa configuration"
+      required: false
+
+hooks: # Optional: Integration hooks
+  after_tasks:
+    command: "speckit.zuraffa.init"
+    optional: true
+    prompt: "Run init command?"
+
+tags: # Optional: For catalog search
+  - "flutter"
+  - "codegen"
